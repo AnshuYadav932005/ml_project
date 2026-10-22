@@ -1,0 +1,11 @@
+                      precision    recall  f1-score   support
+
+          Normal (N)     0.9900    0.9965    0.9932     18118
+Supraventricular (S)     0.9153    0.7770    0.8405       556
+     Ventricular (V)     0.9659    0.9579    0.9619      1448
+          Fusion (F)     0.8750    0.7778    0.8235       162
+         Unknown (Q)     0.9938    0.9913    0.9925      1608
+
+            accuracy                         0.9863     21892
+           macro avg     0.9480    0.9001    0.9223     21892
+        weighted avg     0.9859    0.9863    0.9860     21892

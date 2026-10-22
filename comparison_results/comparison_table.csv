@@ -1,0 +1,5 @@
+,model,parameters,epochs_trained,best_epoch,train_time_sec,inference_ms_per_beat,device,accuracy,precision_macro,recall_macro,f1_macro,precision_weighted,recall_weighted,f1_weighted,roc_auc_macro_ovr,sec_per_epoch,mean_rank
+1D-CNN,1D-CNN,429637.0,22.0,16.0,100.1,0.0297,cuda,0.9863,0.948,0.9001,0.9223,0.9859,0.9863,0.986,0.9939,4.55,1.0
+LSTM,LSTM,54917.0,30.0,30.0,1254.8,0.1893,cuda,0.9803,0.9266,0.8675,0.8943,0.9797,0.9803,0.9797,0.9921,41.8267,3.1667
+GRU,GRU,42309.0,30.0,27.0,1518.4,0.0872,cuda,0.9842,0.9457,0.8817,0.9107,0.9838,0.9842,0.9837,0.9931,50.6133,2.0
+Transformer,Transformer,83653.0,30.0,30.0,419.9,0.0906,cuda,0.9801,0.9366,0.8606,0.8938,0.9794,0.9801,0.9793,0.9881,13.9967,3.8333

@@ -1,0 +1,65 @@
+ECG_CNN(
+  (features): Sequential(
+    (0): Sequential(
+      (0): Conv1d(1, 32, kernel_size=(5,), stride=(1,), padding=(2,))
+      (1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, bias=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (1): Sequential(
+      (0): Conv1d(32, 64, kernel_size=(5,), stride=(1,), padding=(2,))
+      (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, bias=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (2): Sequential(
+      (0): Conv1d(64, 128, kernel_size=(5,), stride=(1,), padding=(2,))
+      (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, bias=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+  )
+  (classifier): Sequential(
+    (0): Flatten(start_dim=1, end_dim=-1)
+    (1): Linear(in_features=2944, out_features=128, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.3, inplace=False)
+    (4): Linear(in_features=128, out_features=5, bias=True)
+  )
+)
+Epoch 01/30 | train_loss 0.1543 acc 0.9569 | val_loss 0.0902 acc 0.9769 macroF1 0.8659 | 6s
+Epoch 02/30 | train_loss 0.0869 acc 0.9760 | val_loss 0.0686 acc 0.9805 macroF1 0.8841 | 11s
+Epoch 03/30 | train_loss 0.0707 acc 0.9798 | val_loss 0.0639 acc 0.9825 macroF1 0.8840 | 15s
+Epoch 04/30 | train_loss 0.0591 acc 0.9827 | val_loss 0.0548 acc 0.9832 macroF1 0.9025 | 20s
+Epoch 05/30 | train_loss 0.0530 acc 0.9843 | val_loss 0.0609 acc 0.9818 macroF1 0.8736 | 24s
+Epoch 06/30 | train_loss 0.0461 acc 0.9858 | val_loss 0.0509 acc 0.9848 macroF1 0.9091 | 29s
+Epoch 07/30 | train_loss 0.0423 acc 0.9866 | val_loss 0.0474 acc 0.9872 macroF1 0.9278 | 34s
+Epoch 08/30 | train_loss 0.0383 acc 0.9880 | val_loss 0.0486 acc 0.9858 macroF1 0.9067 | 38s
+Epoch 09/30 | train_loss 0.0333 acc 0.9893 | val_loss 0.0427 acc 0.9884 macroF1 0.9246 | 42s
+Epoch 10/30 | train_loss 0.0312 acc 0.9900 | val_loss 0.0446 acc 0.9874 macroF1 0.9174 | 47s
+Epoch 11/30 | train_loss 0.0277 acc 0.9903 | val_loss 0.0436 acc 0.9873 macroF1 0.9260 | 51s
+Epoch 12/30 | train_loss 0.0243 acc 0.9918 | val_loss 0.0497 acc 0.9881 macroF1 0.9280 | 56s
+Epoch 13/30 | train_loss 0.0171 acc 0.9943 | val_loss 0.0419 acc 0.9899 macroF1 0.9320 | 60s
+Epoch 14/30 | train_loss 0.0139 acc 0.9953 | val_loss 0.0447 acc 0.9897 macroF1 0.9292 | 65s
+Epoch 15/30 | train_loss 0.0118 acc 0.9959 | val_loss 0.0500 acc 0.9887 macroF1 0.9310 | 69s
+Epoch 16/30 | train_loss 0.0119 acc 0.9956 | val_loss 0.0462 acc 0.9904 macroF1 0.9403 | 74s
+Epoch 17/30 | train_loss 0.0091 acc 0.9971 | val_loss 0.0511 acc 0.9889 macroF1 0.9268 | 78s
+Epoch 18/30 | train_loss 0.0076 acc 0.9975 | val_loss 0.0518 acc 0.9902 macroF1 0.9317 | 82s
+Epoch 19/30 | train_loss 0.0075 acc 0.9974 | val_loss 0.0536 acc 0.9898 macroF1 0.9325 | 87s
+Epoch 20/30 | train_loss 0.0059 acc 0.9981 | val_loss 0.0509 acc 0.9905 macroF1 0.9358 | 91s
+Epoch 21/30 | train_loss 0.0052 acc 0.9985 | val_loss 0.0543 acc 0.9905 macroF1 0.9373 | 96s
+Epoch 22/30 | train_loss 0.0049 acc 0.9985 | val_loss 0.0539 acc 0.9904 macroF1 0.9324 | 100s
+Early stopping at epoch 22 (best epoch 16)
+                      precision    recall  f1-score   support
+
+          Normal (N)     0.9900    0.9965    0.9932     18118
+Supraventricular (S)     0.9153    0.7770    0.8405       556
+     Ventricular (V)     0.9659    0.9579    0.9619      1448
+          Fusion (F)     0.8750    0.7778    0.8235       162
+         Unknown (Q)     0.9938    0.9913    0.9925      1608
+
+            accuracy                         0.9863     21892
+           macro avg     0.9480    0.9001    0.9223     21892
+        weighted avg     0.9859    0.9863    0.9860     21892
+
+Accuracy 0.9863 | macro-F1 0.9223 | ROC-AUC 0.9939
